@@ -7,6 +7,7 @@ module Repost
       @url                = url
       @params             = params
       @options            = options
+      @turbo              = options.fetch(:turbo, false)
       @method             = options.fetch(:method, :post)
       @authenticity_token = options.fetch(:authenticity_token, nil)
       @charset            = options.fetch(:charset, DEFAULT_CHARSET)
@@ -35,7 +36,7 @@ module Repost
                 :submit_text, :authenticity_token, :charset, :autosubmit_nonce
 
     def form_head
-      %Q(<form id="#{form_id}" action="#{url}" method="#{method}" accept-charset="#{charset}">)
+      %Q(<form id="#{form_id}" action="#{url}" method="#{method}" accept-charset="#{charset}" data-turbo="#{turbo}">)
     end
 
     def form_body
