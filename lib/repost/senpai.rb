@@ -90,10 +90,7 @@ module Repost
     def auto_submit_script
       nonce_attr = %Q( nonce="#{autosubmit_nonce}") if autosubmit_nonce
       %Q(<script#{nonce_attr}>
-        document.addEventListener('DOMContentLoaded', function() {
-          var form = document.getElementById("#{form_id}");
-          form.submit();
-        });
+        document.getElementById("#{form_id}").submit();
       </script>)
     end
 
@@ -103,15 +100,3 @@ module Repost
     end
   end
 end
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('my-form');
-    var submitButton = document.createElement('input');
-    submitButton.type = 'submit';
-    submitButton.style.display = 'none';
-    form.appendChild(submitButton);
-
-    // Programmatically submit the form
-    submitButton.click();
-  });
-</script>
