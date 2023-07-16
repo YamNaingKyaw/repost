@@ -33,7 +33,7 @@ module Repost
 
     attr_reader :url, :params, :options, :method, :form_id, :autosubmit,
                 :section_classes, :section_html, :submit_classes,
-                :submit_text, :authenticity_token, :charset, :autosubmit_nonce
+                :submit_text, :authenticity_token, :charset, :autosubmit_nonce, :turbo
 
     def form_head
       %Q(<form id="#{form_id}" action="#{url}" method="#{method}" accept-charset="#{charset}" data-turbo="#{turbo}">)
